@@ -1,0 +1,35 @@
+@charset "UTF-8";
+h1 {
+  text-align: center;
+  color: red;
+}
+fieldset {
+  border: 3px solid red;
+  border-radius: 15px;
+  width: 56%;
+  margin: 0 auto;
+}
+input {
+  border: 1px dotted red;
+  border-radius: 4px;
+  padding: 3px;
+  margin: 3px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: silver;
+}
+input:hover,
+select:hover,
+textarea:hover {
+  border: 1px solid blue;
+  box-shadow: 1px 1px 2px silver;
+}
+legend {
+  font-weight: bold;
+}
+.sub_res {
+  width: 200px;
+  margin-left: 300px;
+}

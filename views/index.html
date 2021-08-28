@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <h1>Formulário</h1>
+    <form id="form" name="form" action="/newUser" method="post">
+        <input type="hidden" name="identification" value="ID_001">
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            <label>Nome:</label><br>
+            <input type="text" name="nome" size="100" required>
+            <br>
+            <label>Contato (e-mail):</label><br>
+            <input type="email" name="contato" size="100" min="4" max="50" required>
+            <br>
+            <label>Senha:</label><br>
+            <input type="password" id="senha" name="senha" size="100" required>
+        </fieldset>
+        <input class="sub_res" type="reset" name="reset" value="Limpar Campos">
+        <input class="sub_res" type="submit" name="envia" value="Enviar">
+    </form>
+
+</body>
+
+</html>
