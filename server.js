@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
+//Configurando o EJS (Embedded Javascript)
+app.set('view engine', "ejs");
+
 //Configuração do Mongoose (https://www.npmjs.com/package/mongoose):]
 mongoose.connect("mongodb://localhost/dbtest", {
     useNewUrlParser: true,
@@ -29,7 +32,3 @@ mongoose.connect("mongodb://localhost/dbtest", {
 
 //Rodando o Servidor
 http.createServer(app).listen(port, () => console.log("Servidor rodando local"));
-//O código abaixo também cria um servidor, sem usar http
-//app.listen(port, function(){console.log("Servidor rodando")})
-
-//module.exports = app;

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário CRUD</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <div class="mainBody">
+        <div class="container">
+            <header>
+                <h1>CRUD - Create Read Update Delete</h1>
+            </header>
+            <p>
+                Um CRUD é uma aplicação que utiliza quatro operações básicas utilizadas em bancos de dados:
+                criação (Create), leitura (Read), atualização (Update) e deleção (Delete). Esta aplicação cria
+                um CRUD básico que permite cadastrar usuários em um banco de dados MongoDB.
+            </p>
+            <h3>Cadastro de Usuário</h3>
+            <p>
+                Preencha o formulário para criar um usuário. Use os botões mais abaixo para listar os usuários
+                cadastrados e, a partir desta tela, atualizar dados e/ou deletar usuários.
+            </p>
+            <form id="form" name="form" action="/" method="post">
+                <input type="hidden" name="identification" value="ID_001">
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+                    <label>Nome:</label><br>
+                    <input type="text" name="name" required>
+                    <br>
+                    <label>Contato (e-mail):</label><br>
+                    <input type="email" name="contact" min="4" max="50" required>
+                    <br>
+                    <label>Senha:</label><br>
+                    <input type="password" id="password" name="password" required>
+                </fieldset>
+                <div class="sub_res">
+                    <button class="showButton" type="button" id="usersList" onclick="Modal.openModal()">Listar
+                        Usuários</button>
+                    <button class="cancelButton" type="reset" name="reset">Limpar Campos</button>
+                    <button class="okButton" type="submit" name="send">Cadastrar Usuário</button>
+                </div>
+            </form>
+            <footer>
+                <p>
+                    Criação: Maury Sayão Lobato Abreu
+                </p>
+                <p>
+                    <a href="mailto:maury.abreu@gmail.com">maury.abreu@gmail.com</a> -
+                    <a href="http://lattes.cnpq.br/4309209351814830">Currículo Lattes</a> -
+                    <a href="https://www.linkedin.com/in/maury-abreu-982b6431/">LinkedIn</a> -
+                    <a href="https://github.com/MaurySLA">GitHub</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <h3>Usuários Cadastrados</h3>
+
+            <table id="users-table">
+                <thead>
+                    <th>Usuário</th>
+                    <th>Contato</th>
+                    <th>Senha</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(details){ %>
+                        <tr>
+                            <td>
+                                <%= details.name %>;
+                            </td>
+                            <td>
+                                <%= details.contact %>;
+                            </td>
+                            <td>
+                                <%= details.password %>;
+                            </td>
+                            <td><a href="/edit/<%= details._id %> ">Editar</a></td>
+                            <td><a href="/delete/<%= details._id %> ">Deletar</a></td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <button class="cancelButton" type="button" onclick="Modal.closeModal()">Fechar Modal!</button>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>

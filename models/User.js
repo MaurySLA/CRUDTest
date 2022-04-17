@@ -11,3 +11,5 @@ const User = new Schema({
 });
 
 mongoose.model('users', User); //Define a coleção onde serão armazenados os dados
+
+module.exports = User;

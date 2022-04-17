@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário CRUD</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <div class="mainBody">
+        <div class="container">
+            <header>
+                <h1>CRUD - Create Read Update Delete</h1>
+            </header>
+            <p>
+                Um CRUD é uma aplicação que utiliza quatro operações básicas utilizadas em bancos de dados:
+                criação (Create), leitura (Read), atualização (Update) e deleção (Delete). Esta aplicação cria
+                um CRUD básico que permite cadastrar usuários em um banco de dados MongoDB.
+            </p>
+            <h3>Apagar Usuário</h3>
+            <p>
+                O usuário abaixo está cadastrado no banco de dados. Deseja apagar permanentemente este usuário? Essa
+                ação é irreversível! Clique em <i>Cancelar</i> para retornar à página inicial.
+            </p>
+            <form id="form-delete" name="form-delete" action="/delete/<%=users._id%>" method="post">
+                <input type="hidden" name="identification" value=<%=users._id%>>
+                <fieldset>
+                    <legend>Informações do Usuário</legend>
+                    <label>Nome:</label><br>
+                    <input type="text" name="name" value="<%= users.name %>" disabled>
+                    <br>
+                    <label>Contato (e-mail):</label><br>
+                    <input type="email" name="contact" value="<%= users.contact %>" disabled>
+                    <br>
+                    <label>Senha:</label><br>
+                    <input type="password" id="senha" name="password" value="<%= users.password %>" disabled>
+                </fieldset>
+                <div class="sub_res">
+                    <a class="linkButton" href="/"><button class="showButton" type="button"
+                            id="back-index">Cancelar</button></a>
+                    <button class="cancelButton" type="submit" name="envia">Deletar Usuário</button>
+                </div>
+            </form>
+            <footer>
+                <p>
+                    Criação: Maury Sayão Lobato Abreu
+                </p>
+                <p>
+                    <a href="mailto:maury.abreu@gmail.com">maury.abreu@gmail.com</a> -
+                    <a href="http://lattes.cnpq.br/4309209351814830">Currículo Lattes</a> -
+                    <a href="https://www.linkedin.com/in/maury-abreu-982b6431/">LinkedIn</a> -
+                    <a href="https://github.com/MaurySLA">GitHub</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>

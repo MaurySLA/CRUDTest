@@ -1,19 +1,50 @@
 @charset "UTF-8";
-h1 {
-  text-align: center;
-  color: red;
+
+/* ==== CSS Html Geral ==== */
+body {
+  background: rgb(233, 233, 233);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
-fieldset {
-  border: 3px solid red;
-  border-radius: 15px;
+.mainBody {
+  width: 98vw;
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+  /*border: 3px solid red;*/
+  /*align-items: center;*/
+  /* A propriedade a cima alinha no centro vertical*/
+}
+.container {
   width: 56%;
-  margin: 0 auto;
+  /*border: 3px solid black;*/
+}
+header {
+  text-align: center;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
+footer {
+  font-size: 10px;
+  line-height: 20%;
+  text-align: center;
+}
+a{
+  color: black;
+}
+
+/* ==== CSS Formulário ==== */
+fieldset {
+  border: 3px solid black;
+  border-radius: 15px;
 }
 input {
-  border: 1px dotted red;
+  border: 1px dotted black;
   border-radius: 4px;
   padding: 3px;
   margin: 3px;
+  width: 98%;
 }
 input:focus,
 select:focus,
@@ -29,7 +60,117 @@ textarea:hover {
 legend {
   font-weight: bold;
 }
+
+/* ==== CSS Botões ==== */
+button {
+  border: 1px dotted black;
+  border-radius: 4px;
+  width: 98%;
+  padding: 10px;
+  margin: 3px;
+}
+.linkButton {
+  border-radius: 4px;
+  width: 98%;
+}
 .sub_res {
-  width: 200px;
-  margin-left: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+.cancelButton:hover {
+  background-color: rgb(212, 6, 6);
+  color: white;
+}
+.okButton:hover {
+  background-color: rgb(1, 100, 1);
+  color: white;
+}
+.showButton:hover {
+  background-color: rgb(73, 0, 168);
+  color: white;
+}
+
+/* ==== CSS Modal ==== */
+.modal-overlay {
+  /*border: 3px solid red;*/
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal {
+  /*border: 3px solid blue;*/
+  background: #f0f2f5;
+  padding: 2.4rem;
+  position: relative;
+  max-width: 90%;
+  z-index: 1;
+  display: block;
+  overflow-x: auto;
+}
+
+/* ==== CSS Tabela Modal ==== */
+table th {
+  background: white;
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
+}
+table tbody tr {
+  opacity: 0.7;
+}
+table tbody tr:hover {
+  opacity: 1;
+}
+table td {
+  background: white;
+  padding: 1rem 2rem;
+  font-weight: normal;
+}
+#users-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: black;
+  display: block;
+  overflow: scroll;
+  max-height: 300px;
+}
+
+/* ==== CSS Leitor de Tela ==== */
+.sr-only {
+  /*Incluir essa classe para situações em que não se deseja que uma informação apareça na tela*/
+  /*Esse código esconde o bloco da tela, mas mantém ele visível para leitores de tela*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ==== CSS Responsivo ==== */
+@media (min-width: 800px) {
+  /* Quando a mídia tiver largura mínima de 800px */
+  html {
+    font-size: 87.5%;
+  }
+  #balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulário CRUD</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <div class="mainBody">
+        <div class="container">
+            <header>
+                <h1>CRUD - Create Read Update Delete</h1>
+            </header>
+            <p>
+                Um CRUD é uma aplicação que utiliza quatro operações básicas utilizadas em bancos de dados:
+                criação (Create), leitura (Read), atualização (Update) e deleção (Delete). Esta aplicação cria
+                um CRUD básico que permite cadastrar usuários em um banco de dados MongoDB.
+            </p>
+            <h3>Atualizar Usuário</h3>
+            <p>
+                Use o formulário abaixo para modificar as informações de um usuário previamente cadastrado. Clique em
+                <i>Voltar</i> para retornar à página inicial ou em <i>Atualizar Usuário</i> para alterar os dados do
+                usuário no banco de dados.
+            </p>
+            <form id="form-edit" name="form-edit" action="/edit/<%=users._id%>" method="post">
+                <input type="hidden" name="identification" value=<%=users._id%>>
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+                    <label>Nome:</label><br>
+                    <input type="text" name="name" value="<%= users.name %>" required>
+                    <br>
+                    <label>Contato (e-mail):</label><br>
+                    <input type="email" name="contact" min="4" max="50" value="<%= users.contact %>" required>
+                    <br>
+                    <label>Senha:</label><br>
+                    <input type="password" id="senha" name="password" value="<%= users.password %>" required>
+                </fieldset>
+                <div class="sub_res">
+                    <a class="linkButton" href="/"><button class="showButton" type="button"
+                            id="back-index">Voltar</button></a>
+                    <button class="okButton" type="submit" name="envia">Atualizar Usuário</button>
+                </div>
+            </form>
+            <footer>
+                <p>
+                    Criação: Maury Sayão Lobato Abreu
+                </p>
+                <p>
+                    <a href="mailto:maury.abreu@gmail.com">maury.abreu@gmail.com</a> -
+                    <a href="http://lattes.cnpq.br/4309209351814830">Currículo Lattes</a> -
+                    <a href="https://www.linkedin.com/in/maury-abreu-982b6431/">LinkedIn</a> -
+                    <a href="https://github.com/MaurySLA">GitHub</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>
